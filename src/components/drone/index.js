@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import socket from '../../../helpers/socket';
 import Battery from '../battery';
-import Tilt from '..tilt/';
+import Tilt from '../tilt';
 
 function useDroneState() {
   const [droneState, updateDroneState] = useState({});

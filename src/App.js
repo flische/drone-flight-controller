@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
-import DroneState from '../frontend/src/components/drone';
-import Commands from '../frontend/src/components/commands';
+import DroneState from './components/drone';
+import Commands from './components/commands';
 
 const GlobalStyle = createGlobalStyle`
   body {

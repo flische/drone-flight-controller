@@ -112,15 +112,11 @@ const Commands = () => (
     <button className="height" onClick={sendCommand(`down ${amount}`)}>
       <span className="symbol">⤓</span> {amount}cm
     </button>
-    <h2>Fancy Pants</h2>
+    <h2>Flip Commands</h2>
     <button onClick={sendCommand('flip l')}>Flip Left</button>
     <button onClick={sendCommand('flip r')}>Flip Right</button>
     <button onClick={sendCommand('flip b')}>Flip Back</button>
     <button onClick={sendCommand('flip f')}>Flip Forward</button>
-    <button onClick={sendCommand('go 25 25 25 25')}>Go 25 25 25 25</button>
-    <button onClick={sendCommand('curve 100 100 100 150 250 350 50')}>
-      Curve!
-    </button>
   </CommandGrid>
 );
 

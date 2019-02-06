@@ -20,10 +20,10 @@ This time around, I wanted to build out the software in JavaScript with ReactJS 
 * ReactJS v16.70-alpha (with React Hooks!) [Feel free to take a look at my documentation on React Hooks here!](https://docs.google.com/document/d/19EVvSyJFUSfULGackoqcyG2b9O_hRoBkZvj2zFiKiSc/edit?usp=sharing)
 * Node.js and UDP4 sockets (via dgram) for communicating with the Tello Drone 
 * Socket.IO web sockets for sending data to / from the browser
-* Styled Components for styling [Learn more about Styled Components Here!](https://www.styled-components.com/)
+* Styled Components for styling [Learn more about Styled Components here!](https://www.styled-components.com/)
 
 ## Hardware 
 
-[Tello Drone](https://www.ryzerobotics.com/tello)
+* [Tello Drone](https://www.ryzerobotics.com/tello)
 
-[Tello Drone Commands SDK](https://dl-cdn.ryzerobotics.com/downloads/tello/20180910/Tello%20SDK%20Documentation%20EN_1.3.pdf)
+* [Tello Drone Commands SDK](https://dl-cdn.ryzerobotics.com/downloads/tello/20180910/Tello%20SDK%20Documentation%20EN_1.3.pdf)

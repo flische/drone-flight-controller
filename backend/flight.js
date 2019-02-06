@@ -14,8 +14,8 @@ drone.bind(PORT);
 function parseState(state) {
   return state
     .split(';')
-    .map(x => x.split(':'))
-    .reduce((data, [key, value]) => {
+    .map( x => x.split(':'))
+    .reduce( (data, [key, value]) => {
       data[key] = value;
       return data;
     }, {});
@@ -77,5 +77,5 @@ droneState.on(
 );
 
 http.listen(6767, () => {
-  console.log('Socket io server up and running');
+  console.log('Socket IO server up and running');
 });
