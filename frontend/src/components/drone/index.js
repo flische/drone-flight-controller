@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import socket from '../../../helpers/socket';
-import Battery from './Battery';
-import Tilt from './Tilt';
+import Battery from '../battery';
+import Tilt from '..tilt/';
 
 function useDroneState() {
   const [droneState, updateDroneState] = useState({});
@@ -25,7 +25,7 @@ function useSocket() {
 const DroneStateStyles = styled.div`
   display: grid;
   grid-template-columns: 1fr 4fr;
-  grid-gap: 5px;
+  grid-gap: 4px;
   .status {
     grid-column: 1 / -1;
     text-align: center;
