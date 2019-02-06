@@ -1,53 +1,8 @@
-import { React, useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import styled from 'styled-components';
 import socket from '../../helpers/socket';
 import Battery from '../battery';
 import Tilt from '../tilt';
-
-function DroneState(props) {
-
-  const [ droneState, updateDroneState ] = useState({});
-
-  function useDroneSocket(message){
-    socket.on('droneState', message);
-    return () => socket.removeListener('droneState');
-    // return droneState;
-    }
-  
-
-  useEffect((droneState) => {
-    useDroneSocket();
-    updateDroneState(droneState);
-    return droneState;
-  });
-  
-  const [ status, updateStatus ] = useState('DISCONNECTED');
-
-  function useStatusSocket(message){
-    socket.on('status', message);
-    return () => socket.removeListener('status');
-    // return message;
-  }
-
-  useEffect((status) => {
-    useStatusSocket();
-    updateStatus(status);
-    return status;
-  });
-
-  return (
-    <DroneStateStyles>
-      <p className="status">Status: {status}</p>
-      <Battery battery={props.battery} />
-      <Tilt
-        pitch={props.pitch}
-        roll={props.roll}
-        yaw={props.yaw}
-        height={props.height}
-      />
-    </DroneStateStyles>
-  );
-}
 
 const DroneStateStyles = styled.div`
   display: grid;
@@ -59,4 +14,42 @@ const DroneStateStyles = styled.div`
   }
 `;
 
-export default DroneState;
+export default function DroneState(props) {
+
+  const [ droneState, updateDroneState ] = useState({});
+
+  useEffect(() => {
+    function useDroneState() {
+      socket.on('droneState', updateDroneState);
+      return () => socket.removeListener('droneState');
+    } 
+    useDroneState();
+    return droneState;
+  }, []);
+  
+
+  const [status, updateStatus] = useState('DISCONNECTED');
+
+  useEffect(() =>  {
+    function handleStatusUpdate() {
+      socket.on('status', updateStatus);
+      return () => socket.removeListener('status');
+    }
+    handleStatusUpdate();
+    return status;
+  }, []);
+
+
+  return (
+    <DroneStateStyles>
+      <p className="status">Status: {status}</p>
+      <Battery battery={droneState.battery} />
+      <Tilt
+        pitch={droneState.pitch}
+        roll={droneState.roll}
+        yaw={droneState.yaw}
+        height={droneState.height}
+      />
+    </DroneStateStyles>
+  );
+}
