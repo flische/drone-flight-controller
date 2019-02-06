@@ -1,5 +1,6 @@
+import React from 'react';
 import styled from 'styled-components';
-import socket from '../../../helpers/socket';
+import socket from '../../helpers/socket';
 
 const CommandGrid = styled.div`
   display: grid;

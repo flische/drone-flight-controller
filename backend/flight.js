@@ -60,7 +60,7 @@ drone.send('command', 0, 'command'.length, PORT, HOST, handleError);
 
 io.on('connection', socket => {
   socket.on('command', command => {
-    console.log('command Sent from browser');
+    console.log('Command sent from browser');
     console.log(command);
     drone.send(command, 0, command.length, PORT, HOST, handleError);
   });
@@ -72,7 +72,7 @@ droneState.on(
   'message',
   throttle(state => {
     const formattedState = parseState(state.toString());
-    io.sockets.emit('dronestate', formattedState);
+    io.sockets.emit('droneState', formattedState);
   }, 100)
 );
 
