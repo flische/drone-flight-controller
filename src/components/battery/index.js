@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const BatteryStyles = styled.div`
-  width: 80%;
+  width: 75%;
   height: 30vh;
   margin-left: 50px;
   margin-bottom: 10px;

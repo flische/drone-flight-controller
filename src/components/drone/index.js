@@ -5,7 +5,8 @@ import Battery from '../battery';
 import Tilt from '../tilt';
 
 const DroneStateStyles = styled.div`
-  float: left
+   /* float: left */
+  left: 0;
   position: absolute;
   top: 20%;
   width: 20vw;
@@ -14,6 +15,12 @@ const DroneStateStyles = styled.div`
     text-align: center;
     color: green;
     margin-left: 50px;
+  }
+
+  @media (max-width: 700px) {
+    top: 83%;
+    width: 50%;
+    left: 20%;
   }
 `;
 

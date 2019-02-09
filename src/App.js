@@ -24,6 +24,14 @@ const GlobalStyle = createGlobalStyle`
 const PageStyles = styled.div`
   max-width: 550px;
   margin: 50px auto 0 auto;
+  position: fixed;
+  left: 25%;
+
+  @media (max-width: 700px) {
+    max-width: 500px;
+    position: relative;
+    left: 0;
+  }
 `;
 
 class App extends Component {
