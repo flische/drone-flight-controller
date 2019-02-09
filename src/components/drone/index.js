@@ -11,6 +11,7 @@ const DroneStateStyles = styled.div`
   .status {
     grid-column: 1 / -1;
     text-align: center;
+    color: green;
   }
 `;
 

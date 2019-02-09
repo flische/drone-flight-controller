@@ -9,8 +9,8 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Operator Mono', monospace;
     font-weight: 900;
     font-size: 1rem;
-    background: grey;
-    color: white;
+    background: lightgrey;
+    color: darkblue;
   }
   * {
     font-family: 'Operator Mono', monospace;
@@ -23,7 +23,7 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const PageStyles = styled.div`
-  max-width: 500px;
+  max-width: 550px;
   margin: 0 auto;
 `;
 

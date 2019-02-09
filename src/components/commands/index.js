@@ -7,12 +7,12 @@ const CommandGrid = styled.div`
   grid-template-columns: 1fr 1.25fr 1fr;
   grid-template-rows: repeat(3, 1fr);
   border: 2px solid darkblue;
-  grid-gap: 3px;
+  grid-gap: 2px;
   button {
     text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.05);
     border: 0;
-    background: #fe2c70;
-    border: 2px groove darkblue;
+    background: teal;
+    border: 2px solid darkblue;
     color: white;
     font-size: 1rem;
     position: relative;
@@ -25,27 +25,27 @@ const CommandGrid = styled.div`
     }
     &.takeoff {
       background: #00ff00;
-      color: black;
+      color: darkblue;
       text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.05);
       font-size: 1.5rem;
     }
     &.land {
       background: orange;
-      color: black;
+      color: darkblue;
       text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.05);
       font-size: 1.5rem;
     }
     &.emergency {
       background: yellow;
       text-transform: uppercase;
-      color: darkred;
+      color: red;
     }
     &.rotate {
-      background: #00fff9;
+      background: lightblue;
       color: black;
     }
     &.height {
-      background: #fff;
+      background: #00fff9;
       color: black;
     }
     span.symbol {
@@ -63,14 +63,22 @@ const CommandGrid = styled.div`
     }
   }
 
+  .flip {
+    display: grid;
+    grid-gap: 2px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-column: span 3;
+  }
+
   h2 {
     grid-column: 1 / -1;
-    background: #ffc600;
-    margin: 0;
-    font-size: 1rem;
+    background: magenta;
+    border: 2px solid darkblue;
+    margin: 0 0 0 0;
+    font-size: 1.25rem;
     text-align: center;
-    padding: 0.5rem;
-    color: darkblue;
+    padding: 0.2rem;
+    color: navy;
   }
 `;
 
@@ -81,64 +89,53 @@ function sendCommand(command) {
   };
 }
 
-const amount = 100;
+const amount = 15;
+
 const Commands = () => (
   <CommandGrid>
-    {/* <button className="rotate" onClick={sendCommand('ccw 90')}>
-      rotate <span className="symbol">⟲</span> 90°
-    </button> */}
     <button className="takeoff" onClick={sendCommand('takeoff')}>
-        Take Off
+        TAKE OFF
       </button>
     <button onClick={sendCommand(`forward ${amount}`)}>
-      <span className="symbol">↑</span> Forward {amount}cm
+      <span className="symbol">↑</span> Forward 6"
     </button>
     <button className="land" onClick={sendCommand('land')}>
-        Land
+        LAND
     </button>
-    {/* <button className="rotate" onClick={sendCommand('cw 15')}>
-      rotate <span className="symbol">⟳</span> 15°
-    </button> */}
     <button onClick={sendCommand(`left ${amount}`)}>
-      <span className="symbol">←</span> Left {amount}cm
+      <span className="symbol">←</span> Left 6"
     </button>
     <div className="center">
-      {/* <button className="takeoff" onClick={sendCommand('takeoff')}>
-        Take Off
-      </button> */}
       <button className="rotate" onClick={sendCommand('ccw 90')}>
         Rotate <span className="symbol">⟲</span> 90°
       </button>
-      {/* <button className="land" onClick={sendCommand('land')}>
-        Land
-      </button> */}
-      <button className="rotate" onClick={sendCommand('cw 15')}>
-        Rotate <span className="symbol">⟳</span> 15°
+      <button className="rotate" onClick={sendCommand('cw 90')}>
+        Rotate <span className="symbol">⟳</span> 90°
       </button>
       <button className="emergency" onClick={sendCommand('emergency')}>
-        !!! emergency !!!
+        emergency land
       </button>
     </div>
     <button onClick={sendCommand(`right ${amount}`)}>
       <span className="symbol">→</span>
-      Right {amount}cm
+      Right 6"
     </button>
     <button className="height" onClick={sendCommand(`up ${amount}`)}>
-      Elevate <span className="symbol">⤒</span> {amount}cm
+      Elevate <span className="symbol">⤒</span> 6"
     </button>
     <button onClick={sendCommand(`back ${amount}`)}>
-       <span className="symbol">↓</span> Backward {amount}cm
+       <span className="symbol">↓</span> Reverse 6"
     </button>
     <button className="height" onClick={sendCommand(`down ${amount}`)}>
-     Lower <span className="symbol">⤓</span> {amount}cm
+     Lower <span className="symbol">⤓</span> 6"
     </button>
-    <h2> Drone Flip Commands </h2>
-    {/* <div className="center"> */}
-      <button onClick={sendCommand('flip l')}>Flip Left</button>
-      <button onClick={sendCommand('flip r')}>Flip Right</button>
-      <button onClick={sendCommand('flip b')}>Flip Back</button>
-      <button onClick={sendCommand('flip f')}>Flip Forward</button>
-    {/* </div> */}
+    <h2> Flips & Tricks </h2>
+    <div className="flip">
+      <button onClick={sendCommand('flip l')}>Barrel Roll <span className="">←</span></button>
+      <button onClick={sendCommand('flip f')}>Front Flip</button>
+      <button onClick={sendCommand('flip b')}>Back Flip</button>
+      <button onClick={sendCommand('flip r')}>Barrel Roll <span className="">→</span></button>
+    </div>
   </CommandGrid>
 );
 
