@@ -1,7 +1,9 @@
+import React from 'react';
 import styled from 'styled-components';
 
 const BatteryStyles = styled.div`
   width: 100%;
+  height: 10%;
   --color: ${props => (props.level > 20 ? '#1af21a' : '#bb0707')};
   border: 2px solid black;
   border-radius: 5px;

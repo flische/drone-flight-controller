@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
-import DroneState from '../frontend/src/components/drone';
-import Commands from '../frontend/src/components/commands';
+import DroneState from './components/drone';
+import Commands from './components/commands';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -9,8 +9,8 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Operator Mono', monospace;
     font-weight: 900;
     font-size: 1rem;
-    background:#193549;
-    color: white;
+    background: lightgrey;
+    color: darkblue;
   }
   * {
     font-family: 'Operator Mono', monospace;
@@ -18,12 +18,12 @@ const GlobalStyle = createGlobalStyle`
   }
   h2 {
     text-align: center;
-    font-style: italic;
+     /* font-style: italic; */
   }
 `;
 
 const PageStyles = styled.div`
-  max-width: 500px;
+  max-width: 550px;
   margin: 0 auto;
 `;
 
