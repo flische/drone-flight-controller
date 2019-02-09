@@ -18,7 +18,7 @@ const DroneStateStyles = styled.div`
   }
 
   @media (max-width: 700px) {
-    top: 83%;
+    top: 540px;
     width: 50%;
     left: 20%;
   }

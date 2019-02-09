@@ -28,12 +28,22 @@ const CommandGrid = styled.div`
       color: darkblue;
       text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.05);
       font-size: 1.5rem;
+      span.symbol {
+          display: block;
+          font-size: 3rem;
+          font-weight: 400;
+        }
     }
     &.land {
       background: orange;
       color: darkblue;
       text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.05);
       font-size: 1.5rem;
+      span.symbol {
+          display: block;
+          font-size: 3rem;
+          font-weight: 400;
+        }
     }
     &.emergency {
       background: yellow;
@@ -86,6 +96,14 @@ const CommandGrid = styled.div`
     padding: 0.2rem;
     color: navy;
   }
+
+  @media (max-width: 700px) {
+    max-width: 500px;
+    max-height: 460px;
+    margin: 5px auto 0 auto;
+    position: relative;
+    left: 0;
+  }
 `;
 
 function sendCommand(command) {
@@ -100,13 +118,13 @@ const amount = 15;
 const Commands = () => (
   <CommandGrid>
     <button className="takeoff" onClick={sendCommand('takeoff')}>
-        TAKE OFF
+        TAKE OFF <span className="symbol">⬈</span>
       </button>
     <button onClick={sendCommand(`forward ${amount}`)}>
       <span className="symbol">↑</span> Forward 6"
     </button>
     <button className="land" onClick={sendCommand('land')}>
-        LAND
+        LAND <span className="symbol">⬊</span>
     </button>
     <button onClick={sendCommand(`left ${amount}`)}>
       <span className="symbol">←</span> Left 6"
@@ -119,7 +137,7 @@ const Commands = () => (
         Rotate <span className="symbol">⟳</span> 90°
       </button>
       <button className="emergency" onClick={sendCommand('emergency')}>
-        emergency land
+        emergency land <span role="img" className="symbol">🚧</span>
       </button>
     </div>
     <button onClick={sendCommand(`right ${amount}`)}>

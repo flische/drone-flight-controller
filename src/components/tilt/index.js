@@ -10,17 +10,22 @@ const TiltWrap = styled.div`
   margin-left: 50px;
   grid-template-columns: repeat(1, 1fr);
   grid-template-rows: repeat(4, span 2);
-  span {
+  div {
     background: orange;
+    border: 2px groove darkblue;
+  }
+  h3 {
+    margin-bottom: 2px;
   }
 `;
 
 const Tilt = ({ pitch, roll, yaw, height }) => (
   <TiltWrap>
-    <span>Pitch: {pitch}</span>
-    <span>Roll: {roll}</span>
-    <span>Yaw: {yaw}</span>
-    <span>Height: {height / 100}M</span>
+      <h3>Telemetry</h3>
+      <div>Pitch: {pitch}</div>
+      <div>Roll: {roll}</div>
+      <div>Yaw: {yaw}</div>
+      <div>Height: {height / 100}M</div>
   </TiltWrap>
 );
 
