@@ -11,11 +11,11 @@ const TiltWrap = styled.div`
   grid-gap: 4px;
   grid-template-columns: repeat(4, 1fr);
   span {
-    background: #fe2c70;
+    background: orange;
   }
 `;
 const TiltStyles = styled.div`
-  background-image: url('/static/drone.png');
+  background-image: url('../../../assets/images/drone.png');
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;

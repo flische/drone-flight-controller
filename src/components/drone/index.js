@@ -21,10 +21,12 @@ export default function DroneState(props) {
   useEffect(() => {
     function useDroneState() {
       socket.on('droneState', updateDroneState);
-      return () => socket.removeListener('droneState');
+      socket.removeListener('droneState');
+      return droneState;
+      // return () => socket.removeListener('droneState');
     } 
     useDroneState();
-    return droneState;
+    // return droneState;
   }, []);
   
 
@@ -33,10 +35,12 @@ export default function DroneState(props) {
   useEffect(() =>  {
     function handleStatusUpdate() {
       socket.on('status', updateStatus);
-      return () => socket.removeListener('status');
+      socket.removeListener('status');
+      return status;
+      // return () => socket.removeListener('status');
     }
     handleStatusUpdate();
-    return status;
+    // return status;
   }, []);
 
 

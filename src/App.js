@@ -9,7 +9,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Operator Mono', monospace;
     font-weight: 900;
     font-size: 1rem;
-    background:#193549;
+    background: grey;
     color: white;
   }
   * {
@@ -18,7 +18,7 @@ const GlobalStyle = createGlobalStyle`
   }
   h2 {
     text-align: center;
-    font-style: italic;
+     /* font-style: italic; */
   }
 `;
 
