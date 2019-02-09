@@ -53,6 +53,12 @@ const CommandGrid = styled.div`
       font-size: 2rem;
       font-weight: 400;
     }
+    span.reverse {
+      display: block;
+      font-size: 2.5rem;
+      font-weight: 300;
+      margin-top: 0;
+    }
   }
   .center {
     display: grid;
@@ -117,14 +123,13 @@ const Commands = () => (
       </button>
     </div>
     <button onClick={sendCommand(`right ${amount}`)}>
-      <span className="symbol">→</span>
-      Right 6"
+      <span className="symbol">→</span> Right 6"
     </button>
     <button className="height" onClick={sendCommand(`up ${amount}`)}>
       Elevate <span className="symbol">⤒</span> 6"
     </button>
     <button onClick={sendCommand(`back ${amount}`)}>
-       <span className="symbol">↓</span> Reverse 6"
+      Reverse 6" <span className="reverse">↓</span>
     </button>
     <button className="height" onClick={sendCommand(`down ${amount}`)}>
      Lower <span className="symbol">⤓</span> 6"

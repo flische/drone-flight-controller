@@ -5,13 +5,15 @@ import Battery from '../battery';
 import Tilt from '../tilt';
 
 const DroneStateStyles = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 4fr;
-  grid-gap: 5px;
+  float: left
+  position: absolute;
+  top: 20%;
+  width: 20vw;
+  text-align: center;
   .status {
-    grid-column: 1 / -1;
     text-align: center;
     color: green;
+    margin-left: 50px;
   }
 `;
 
