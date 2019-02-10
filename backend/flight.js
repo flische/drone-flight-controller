@@ -36,15 +36,15 @@ function handleError(err) {
   }
 }
 
-const commands = ['command', 'battery?', 'takeoff', 'land'];
+var commands = ['command', 'battery?', 'takeoff', 'land'];
 // const commands = ['command', 'battery?'];
 
-const i = 0;
+var i = 0;
 
 drone.send('command', 0, 'command'.length, PORT, HOST, handleError);
 
 async function go() {
-  const command = commands[i];
+  var command = commands[i];
   const delay = commandDelays[command];
   console.log(`running command: ${command}`);
   drone.send(command, 0, command.length, PORT, HOST, handleError);

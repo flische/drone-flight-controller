@@ -24,46 +24,81 @@ const DroneStateStyles = styled.div`
   }
 `;
 
-export default function DroneState(props) {
+// export default function DroneState(props) {
 
-  const [ droneState, updateDroneState ] = useState({});
-
-  useEffect(() => {
-    function useDroneState() {
+  function useDroneState() {
+    const [ droneState, updateDroneState ] = useState({});
+    useEffect(() => {
       socket.on('droneState', updateDroneState);
-      socket.removeListener('droneState');
-      return droneState;
-      // return () => socket.removeListener('droneState');
-    } 
-    useDroneState();
-    // return droneState;
-  }, []);
+      return () => socket.removeListener('droneState');
+    }, []);
+    return droneState;
+  }
+
+  function useSocket() { 
+    const [status, updateStatus] = useState('DISCONNECTED');
+    useEffect(() => {
+      socket.on('status', updateStatus);
+      return () => socket.removeListener('status');
+    }, []);
+    return status;
+  }
+
+  const DroneState = () => {
+    const status = useSocket();
+    const droneState = useDroneState([]);
+    return (
+      <DroneStateStyles>
+        <p className="status">Status: {status}</p>
+        <Battery battery={droneState.bat} />
+        <Tilt
+          pitch={droneState.pitch}
+          roll={droneState.roll}
+          yaw={droneState.yaw}
+          height={droneState.h}
+        />
+      </DroneStateStyles>
+    );
+  };
+  
+  export default DroneState;
+
+  // useEffect(() => {
+  //   function useDroneState() {
+  //     socket.on('droneState', updateDroneState);
+  //     socket.removeListener('droneState');
+  //     return droneState;
+  //     // return () => socket.removeListener('droneState');
+  //   } 
+  //   useDroneState();
+  //   // return droneState;
+  // }, []);
   
 
-  const [status, updateStatus] = useState('DISCONNECTED');
+  // const [status, updateStatus] = useState('DISCONNECTED');
 
-  useEffect(() =>  {
-    function handleStatusUpdate() {
-      socket.on('status', updateStatus);
-      socket.removeListener('status');
-      return status;
-      // return () => socket.removeListener('status');
-    }
-    handleStatusUpdate();
-    // return status;
-  }, []);
+  // useEffect(() =>  {
+  //   function handleStatusUpdate() {
+  //     socket.on('status', updateStatus);
+  //     socket.removeListener('status');
+  //     return status;
+  //     // return () => socket.removeListener('status');
+  //   }
+  //   handleStatusUpdate();
+  //   // return status;
+  // }, []);
 
 
-  return (
-    <DroneStateStyles>
-      <p className="status">Status: {status}</p>
-      <Battery battery={droneState.battery} />
-      <Tilt
-        pitch={droneState.pitch}
-        roll={droneState.roll}
-        yaw={droneState.yaw}
-        height={droneState.height}
-      />
-    </DroneStateStyles>
-  );
-}
+//   return (
+//     <DroneStateStyles>
+//       <p className="status">Status: {status}</p>
+//       <Battery battery={droneState.battery} />
+//       <Tilt
+//         pitch={droneState.pitch}
+//         roll={droneState.roll}
+//         yaw={droneState.yaw}
+//         height={droneState.height}
+//       />
+//     </DroneStateStyles>
+//   );
+// }
