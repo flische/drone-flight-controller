@@ -36,27 +36,27 @@ function handleError(err) {
   }
 }
 
-const commands = ['command', 'battery?', 'takeoff', 'land'];
+var commands = ['command', 'battery?', 'takeoff', 'land'];
 // const commands = ['command', 'battery?'];
 
-const i = 0;
+var i = 0;
 
 drone.send('command', 0, 'command'.length, PORT, HOST, handleError);
 
-// async function go() {
-//   const command = commands[i];
-//   const delay = commandDelays[command];
-//   console.log(`running command: ${command}`);
-//   drone.send(command, 0, command.length, PORT, HOST, handleError);
-//   await wait(delay);
-//   i += 1;
-//   if (i < commands.length) {
-//     return go();
-//   }
-//   console.log('done!');
-// }
+async function go() {
+  var command = commands[i];
+  const delay = commandDelays[command];
+  console.log(`running command: ${command}`);
+  drone.send(command, 0, command.length, PORT, HOST, handleError);
+  await wait(delay);
+  i += 1;
+  if (i < commands.length) {
+    return go();
+  }
+  console.log('done!');
+}
 
-// go();
+go();
 
 io.on('connection', socket => {
   socket.on('command', command => {
@@ -64,7 +64,6 @@ io.on('connection', socket => {
     console.log(command);
     drone.send(command, 0, command.length, PORT, HOST, handleError);
   });
-
   socket.emit('status', 'CONNECTED');
 });
 

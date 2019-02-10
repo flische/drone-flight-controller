@@ -18,12 +18,24 @@ const GlobalStyle = createGlobalStyle`
   }
   h2 {
     text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 `;
 
 const PageStyles = styled.div`
   max-width: 550px;
-  margin: 50px auto 0 auto;
+  max-height: 600px;
+  margin: 10px auto 0 auto;
+  position: fixed;
+  left: 25%;
+
+  @media (max-width: 700px) {
+    max-width: 500px;
+    margin: 5px auto 0 auto;
+    position: relative;
+    left: 0;
+  }
 `;
 
 class App extends Component {
