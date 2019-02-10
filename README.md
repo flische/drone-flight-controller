@@ -27,3 +27,9 @@ This time around, I wanted to build out the software in JavaScript with ReactJS 
 * [Tello Drone](https://www.ryzerobotics.com/tello)
 
 * [Tello Drone Commands SDK](https://dl-cdn.ryzerobotics.com/downloads/tello/20180910/Tello%20SDK%20Documentation%20EN_1.3.pdf)
+
+## Instructions
+
+* npm start 
+* connect to the drone via it's WiFi connection
+* cd into /src folder then run 'node flight.js' to connect to server
