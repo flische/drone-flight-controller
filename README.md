@@ -17,7 +17,7 @@ This time around, I wanted to build out the software in JavaScript with ReactJS 
 
 ## Technologies Used: 
 
-* ReactJS v16.70-alpha (with React Hooks!) [Feel free to take a look at my documentation on React Hooks here!](https://docs.google.com/document/d/19EVvSyJFUSfULGackoqcyG2b9O_hRoBkZvj2zFiKiSc/edit?usp=sharing)
+* ReactJS v16.8.0-alpha.1a (with React Hooks!) [Feel free to take a look at my documentation on React Hooks here!](https://docs.google.com/document/d/19EVvSyJFUSfULGackoqcyG2b9O_hRoBkZvj2zFiKiSc/edit?usp=sharing)
 * Node.js and UDP4 sockets (via dgram) for communicating with the Tello Drone 
 * Socket.IO web sockets for sending data to / from the browser
 * Styled Components for styling [Learn more about Styled Components here!](https://www.styled-components.com/)
@@ -25,11 +25,18 @@ This time around, I wanted to build out the software in JavaScript with ReactJS 
 ## Hardware 
 
 * [Tello Drone](https://www.ryzerobotics.com/tello)
-
 * [Tello Drone Commands SDK](https://dl-cdn.ryzerobotics.com/downloads/tello/20180910/Tello%20SDK%20Documentation%20EN_1.3.pdf)
 
 ## Instructions
 
-* npm start 
-* connect to the drone via it's WiFi connection
-* cd into /src folder then run 'node flight.js' to connect to server
+These instructions assume that you have your own Tello Drone that uses the same SDK (see above)
+*I strongly advise that you read through the Tello SDK as well as the Tello's Safety Guidelines before proceeding
+
+** Navigate to project root directory
+** In your terminal, run the command 'npm start' to start the local server
+** Open your web browser and navigate to localhost:3000 (normally, the npm start command will do this for you)
+** Turn on the Tello Drone
+** On your computer, connect to the drone's WiFi 
+** In your terminal, open a new tab / window. Navigate to the backend folder (or wherever the file flight.js is located) then run 'node flight.js' to connect to the drone
+** If connected successfully, you should see: "Status: CONNECTED" or "Status: OK" as well as real-time Telemetry data appearing
+** Time to fly! Have fun and be safe! 

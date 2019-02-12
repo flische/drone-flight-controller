@@ -69,6 +69,18 @@ const CommandGrid = styled.div`
       font-weight: 300;
       margin-top: 0;
     }
+    span.right {
+      display: block;
+      font-size: 2.25rem;
+      font-weight: 300;
+      margin-top: 0;
+    }
+    span.left {
+      display: block;
+      font-size: 2.5rem;
+      font-weight: 300;
+      margin-top: 0;
+    }
   }
   .center {
     display: grid;
@@ -113,21 +125,21 @@ function sendCommand(command) {
   };
 }
 
-const amount = 20;
+const amount = 50;
 
 const Commands = () => (
   <CommandGrid>
     <button className="takeoff" onClick={sendCommand('takeoff')}>
-        TAKE OFF <span className="symbol">⬈</span>
+        TAKE OFF <span className="symbol">⇡</span>
       </button>
     <button onClick={sendCommand(`forward ${amount}`)}>
-      <span className="symbol">↑</span> Forward 20cm
+      <span className="symbol">↑</span> Forward 50cm
     </button>
     <button className="land" onClick={sendCommand('land')}>
-        LAND <span className="symbol">⬊</span>
+        LAND <span className="symbol">⇣</span>
     </button>
     <button onClick={sendCommand(`left ${amount}`)}>
-      <span className="symbol">←</span> Left 20cm
+      <span className="symbol left">←</span> Left 50cm
     </button>
     <div className="center">
       <button className="rotate" onClick={sendCommand('ccw 90')}>
@@ -141,16 +153,16 @@ const Commands = () => (
       </button>
     </div>
     <button onClick={sendCommand(`right ${amount}`)}>
-      <span className="symbol">→</span> Right 20cm
+      <span className="symbol right">➞</span> Right 50cm
     </button>
     <button className="height" onClick={sendCommand(`up ${amount}`)}>
-      Elevate <span className="symbol">⤒</span> 20cm
+      Elevate <span className="symbol">⤒</span> 50cm
     </button>
     <button onClick={sendCommand(`back ${amount}`)}>
       Reverse 6" <span className="reverse">↓</span>
     </button>
     <button className="height" onClick={sendCommand(`down ${amount}`)}>
-     Lower <span className="symbol">⤓</span> 20cm
+     Lower <span className="symbol">⤓</span> 50cm
     </button>
     <h2> Flips & Tricks </h2>
     <div className="flip">
