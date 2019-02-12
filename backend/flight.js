@@ -36,9 +36,6 @@ function handleError(err) {
   }
 }
 
-var commands = ['command', 'battery?', 'takeoff', 'land'];
-// const commands = ['command', 'battery?'];
-
 var i = 0;
 
 drone.send('command', 0, 'command'.length, PORT, HOST, handleError);

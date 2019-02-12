@@ -5,7 +5,6 @@ import Battery from '../battery';
 import Tilt from '../tilt';
 
 const DroneStateStyles = styled.div`
-   /* float: left */
   left: 0;
   position: absolute;
   top: 20%;
@@ -23,8 +22,6 @@ const DroneStateStyles = styled.div`
     left: 20%;
   }
 `;
-
-// export default function DroneState(props) {
 
   function useDroneState() {
     const [ droneState, updateDroneState ] = useState({});
@@ -62,43 +59,3 @@ const DroneStateStyles = styled.div`
   };
   
   export default DroneState;
-
-  // useEffect(() => {
-  //   function useDroneState() {
-  //     socket.on('droneState', updateDroneState);
-  //     socket.removeListener('droneState');
-  //     return droneState;
-  //     // return () => socket.removeListener('droneState');
-  //   } 
-  //   useDroneState();
-  //   // return droneState;
-  // }, []);
-  
-
-  // const [status, updateStatus] = useState('DISCONNECTED');
-
-  // useEffect(() =>  {
-  //   function handleStatusUpdate() {
-  //     socket.on('status', updateStatus);
-  //     socket.removeListener('status');
-  //     return status;
-  //     // return () => socket.removeListener('status');
-  //   }
-  //   handleStatusUpdate();
-  //   // return status;
-  // }, []);
-
-
-//   return (
-//     <DroneStateStyles>
-//       <p className="status">Status: {status}</p>
-//       <Battery battery={droneState.battery} />
-//       <Tilt
-//         pitch={droneState.pitch}
-//         roll={droneState.roll}
-//         yaw={droneState.yaw}
-//         height={droneState.height}
-//       />
-//     </DroneStateStyles>
-//   );
-// }
