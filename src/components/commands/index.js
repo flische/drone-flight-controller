@@ -69,6 +69,18 @@ const CommandGrid = styled.div`
       font-weight: 300;
       margin-top: 0;
     }
+    span.right {
+      display: block;
+      font-size: 2.25rem;
+      font-weight: 300;
+      margin-top: 0;
+    }
+    span.left {
+      display: block;
+      font-size: 2.5rem;
+      font-weight: 300;
+      margin-top: 0;
+    }
   }
   .center {
     display: grid;
@@ -118,16 +130,16 @@ const amount = 50;
 const Commands = () => (
   <CommandGrid>
     <button className="takeoff" onClick={sendCommand('takeoff')}>
-        TAKE OFF <span className="symbol">⬈</span>
+        TAKE OFF <span className="symbol">⇡</span>
       </button>
     <button onClick={sendCommand(`forward ${amount}`)}>
       <span className="symbol">↑</span> Forward 50cm
     </button>
     <button className="land" onClick={sendCommand('land')}>
-        LAND <span className="symbol">⬊</span>
+        LAND <span className="symbol">⇣</span>
     </button>
     <button onClick={sendCommand(`left ${amount}`)}>
-      <span className="symbol">←</span> Left 50cm
+      <span className="symbol left">←</span> Left 50cm
     </button>
     <div className="center">
       <button className="rotate" onClick={sendCommand('ccw 90')}>
@@ -141,7 +153,7 @@ const Commands = () => (
       </button>
     </div>
     <button onClick={sendCommand(`right ${amount}`)}>
-      <span className="symbol">→</span> Right 50cm
+      <span className="symbol right">➞</span> Right 50cm
     </button>
     <button className="height" onClick={sendCommand(`up ${amount}`)}>
       Elevate <span className="symbol">⤒</span> 50cm
